@@ -45,9 +45,10 @@ def add_contact(args, book: AddressBook):
 @input_error
 def change_contact(args, book: AddressBook):
     name, phone, new_phone, *_ = args
+    normalized_phone = normalize_phone(phone)
     record = book.find(name)
     if record:
-        record.edit_phone(phone, new_phone)
+        record.edit_phone(normalized_phone, new_phone)
         message = "Contact updated."
     else:
         message = "Contact does not exist."

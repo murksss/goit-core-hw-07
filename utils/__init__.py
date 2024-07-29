@@ -1,4 +1,4 @@
-from .Record import Record
+from .Record import Record, normalize_phone
 from .AddressBook import AddressBook
 from .parse_input import parse_input
 from .handler import (
@@ -16,6 +16,7 @@ from .handler import (
 
 __all__ = [
     'Record'
+    , 'normalize_phone'
     , 'AddressBook'
     , 'parse_input'
     , 'bot_answer'
