@@ -48,8 +48,11 @@ def change_contact(args, book: AddressBook):
     normalized_phone = normalize_phone(phone)
     record = book.find(name)
     if record:
-        record.edit_phone(normalized_phone, new_phone)
-        message = "Contact updated."
+        status = record.edit_phone(normalized_phone, new_phone)
+        if status:
+            message = "Contact updated."
+        else:
+            message = "Phone does not exist"
     else:
         message = "Contact does not exist."
     return message

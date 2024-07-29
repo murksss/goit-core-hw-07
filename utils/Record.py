@@ -67,9 +67,12 @@ class Record:
                 break
 
     def edit_phone(self, phone: str, new_phone: str):
+        status = False
         for idx, p in enumerate(self.phones):
             if p.value == phone:
+                status = True
                 self.phones[idx] = Phone(new_phone)
+        return status
 
     def find_phone(self, phone: str):
         for p in self.phones:
